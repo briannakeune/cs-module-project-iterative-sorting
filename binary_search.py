@@ -73,4 +73,4 @@ def insertion_sort_books(arr_of_books):
             arr_of_books[j] = arr_of_books[j - 1]
             j -= 1
         # insert the book at the correct position
-        arr_of_books[j] = curr_book
+            arr_of_books[j] = curr_book

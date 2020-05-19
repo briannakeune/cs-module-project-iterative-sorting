@@ -13,21 +13,25 @@ def linear_search(arr, target):
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
-    found = None
-    # Compare the item in the middle of the data set to the item we are searching for.
-    middle_index = len(arr) // 2
+    # *how to find the midpoint*
+    # let's figure out the total size of the arr
+    left = 0
+    right = len(arr) - 1
+    # find the midpoint
 
-    while target is not found:
-        # If it is the same, stop. We found it and are done!
-        if target == arr[middle_index]:
-            found = arr[middle_index]
-            return middle_index
-        # Else, if the item we are searching for is LESS than the item in the middle:
-        elif target < arr[middle_index]:
-            # Eliminate the RHS of list. Repeat step 1 with only the LHS of list.
-            middle_index = middle_index // 2
-        # Else, the item we are searching for is GREATER than the item in the middle:
-            # Eliminate the LHS of list. Repeat step 1 with only the RHS of the list
-        elif target > arr[middle_index]:
-            pass
+    while left <= right:
+        mid = (left + right) // 2
+
+        # check to see if the midpoint elemnet is our target
+        if arr[mid] == target:
+            return mid
+
+        # check to determine which side the element should be placed
+        if arr[mid] < target:
+            # toss out of the left side of the arr
+            left = mid + 1
+       # otherwise, arr[mid] > target
+        else:
+            # toss out the right side
+            right = mid - 1
     return -1  # not found
